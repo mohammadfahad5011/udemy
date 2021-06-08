@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+section{
+    border: 1px solid black;
+    font-size: 2rem;
+}
+
+$grid-width:114rem;
+$grutter-horizontal:8rem;
+$grutter-vartical:6rem;
+
+
+.row{
+    max-width: $grid-width;
+    // background: burlywood;
+    margin: 0 auto;
+    margin-bottom: $grutter-horizontal;
+
+    .col{
+        float: left;
+        
+        // background: rgb(70, 15, 158);
+
+        &:not(:last-child){
+            margin-right: $grutter-vartical;
+        }
+
+    }
+
+    @include clearfix;
+
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .col-1-of-2{
+        border: 1px solid black;
+        width: calc((100% - #{$grutter-vartical})/2);
+    }
+    
+
+    .col-1-of-3{
+        border: 1px solid black;
+        width: calc((100% - 2 * #{$grutter-vartical})/3);
+    }
+    
+    .col-1-of-4{
+        border: 1px solid black;
+        width: calc((100% - 3 * #{$grutter-vartical})/4);
+    }
+
+    .col-2-of-3{
+        width: calc(2 * ((100% - 2 * #{$grutter-vartical})/3) + #{$grutter-vartical});
+    }
+
+    .col-2-of-4{
+        width: calc(2 * ((100% -  #{$grutter-vartical})/4) );
+    }
+
+    .col-3-of-4{
+        width: calc(3 * ((100% -  #{$grutter-vartical})/4));
+    }
+    
+}
+
+
+
